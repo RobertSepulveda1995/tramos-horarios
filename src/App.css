@@ -1,3 +1,7 @@
-.app {
-    font-family: 'Courier New', Courier, monospace;
+.title {
+    font-weight: 400 !important;
+}
+
+.vehicles {
+    font-weight: bold !important;
 }
