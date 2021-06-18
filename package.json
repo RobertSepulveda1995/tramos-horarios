@@ -1,0 +1,44 @@
+{
+    "name": "tramos-horarios",
+    "version": "1.0.0",
+    "description": "schedule app for a motorcycle distribution in differents time-lapsus.",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --config config/webpack.prod.js",
+        "start": "webpack serve --config config/webpack.dev.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RobertSepulveda1995/tramos-horarios.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/RobertSepulveda1995/tramos-horarios/issues"
+    },
+    "homepage": "https://github.com/RobertSepulveda1995/tramos-horarios#readme",
+    "dependencies": {
+        "core-js": "^3.14.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.6",
+        "@babel/preset-env": "^7.14.5",
+        "@babel/preset-react": "^7.14.5",
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+        "babel-loader": "^8.2.2",
+        "clean-webpack-plugin": "^4.0.0-alpha.0",
+        "css-loader": "^5.2.6",
+        "html-webpack-plugin": "^5.3.1",
+        "mini-css-extract-plugin": "^1.6.0",
+        "react-refresh": "^0.9.0",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.39.1",
+        "webpack-cli": "^4.7.2",
+        "webpack-dev-server": "^3.11.2",
+        "webpack-merge": "^5.8.0"
+    },
+    "browsersList": "> 0.25%, not dead, not ie 11"
+}
