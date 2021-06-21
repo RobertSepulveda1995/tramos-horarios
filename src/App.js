@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <Container>
-        <p className="display-1 title">Time Slots</p>
+        <p className="display-1 title">Time Schedule</p>
 
         <Row>
           {timeSlots.map((value) => (
@@ -16,7 +16,7 @@ const App = () => {
               <TimeSlotsCard
                 id={value.id}
                 time={value.time}
-                motorcycles={value.motorcycles}
+                motorbikes={value.motorbikes}
               />
             </Col>
           ))}

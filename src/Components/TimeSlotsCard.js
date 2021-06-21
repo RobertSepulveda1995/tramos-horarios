@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import deliveryGuy from '../assets/DeliveryGuy.png';
-const TimeSlotsCard = ({ id, time, motorcycles }) => {
+const TimeSlotsCard = ({ id, time, motorbikes }) => {
   const [green, setGreen] = useState(false);
+  const [bikes, setBikes] = useState(motorbikes);
 
   const pickABike = (idSchedule) => {
     if (idSchedule) {
       setGreen((green) => !green);
+      switch (green) {
+        case true:
+          setBikes(bikes + 1);
+          break;
+        case false:
+          setBikes(bikes - 1);
+          break;
+        default:
+          break;
+      }
     }
   };
 
@@ -31,7 +42,9 @@ const TimeSlotsCard = ({ id, time, motorcycles }) => {
         />
         <Card.Body>
           <Card.Title>{time}</Card.Title>
-          <Card.Text>Avaliable vehicles: {motorcycles}</Card.Text>
+          <Card.Text>
+            Avaliable bikes: <b>{bikes}</b>
+          </Card.Text>
         </Card.Body>
       </Card>
     </div>
