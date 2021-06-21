@@ -33,7 +33,13 @@ const TimeSlotsCard = ({ id, time, motorbikes }) => {
 
           marginBottom: '1rem',
         }}
-        className={!green ? `shadow rounded` : `shadow rounded bg-success`}
+        className={
+          bikes === 0
+            ? `shadow rounded bg-danger`
+            : !green
+            ? `shadow rounded`
+            : `shadow rounded bg-success`
+        }
       >
         <Card.Img
           style={{ padding: '20px 10px 20px 10px' }}
