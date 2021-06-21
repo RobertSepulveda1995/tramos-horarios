@@ -1,11 +1,10 @@
 import TimeSlotsCard from './Components/TimeSlotsCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { timeSlots } from './utils/timeSlots';
+import timeSlots from './utils/timeSlots.json';
 
 import './App.css';
 const App = () => {
-  console.log(...timeSlots);
   return (
     <>
       <Container>
@@ -15,6 +14,7 @@ const App = () => {
           {timeSlots.map((value) => (
             <Col md="4" key={value.id}>
               <TimeSlotsCard
+                id={value.id}
                 time={value.time}
                 motorcycles={value.motorcycles}
               />
