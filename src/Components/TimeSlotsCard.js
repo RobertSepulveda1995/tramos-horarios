@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import deliveryGuy from '../assets/DeliveryGuy.png';
-const TimeSlotsCard = ({ id, time, motorbikes }) => {
+const TimeSlotsCard = ({ id, time }) => {
   const [green, setGreen] = useState(false);
-  const [bikes, setBikes] = useState(motorbikes);
+  const [bikes, setBikes] = useState(8);
 
   const pickABike = (idSchedule) => {
     if (idSchedule) {
