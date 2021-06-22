@@ -3,17 +3,41 @@ import { Card } from 'react-bootstrap';
 import deliveryGuy from '../assets/DeliveryGuy.png';
 const TimeSlotsCard = ({ id, time }) => {
   const [green, setGreen] = useState(false);
-  const [bikes, setBikes] = useState(8);
+  const [bikes, setBikes] = useState(window.localStorage.getItem('bikes'));
 
+  // const pickABike = (idSchedule) => {
+  //   if (idSchedule) {
+  //     setGreen((green) => !green);
+  //     switch (green) {
+  //       case true:
+  //         setBikes(bikes + 1);
+  //         break;
+  //       case false:
+  //         setBikes(bikes - 1);
+  //         break;
+  //       default:
+  //         break;
+  //     }
+  //   }
+  // };
+
+  const setLocalStorage = (value) => {
+    try {
+      setBikes(value);
+      window.localStorage.setItem('bikes', value);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const pickABike = (idSchedule) => {
     if (idSchedule) {
       setGreen((green) => !green);
       switch (green) {
         case true:
-          setBikes(bikes + 1);
+          setLocalStorage(bikes + 1);
           break;
         case false:
-          setBikes(bikes - 1);
+          setLocalStorage(bikes - 1);
           break;
         default:
           break;
