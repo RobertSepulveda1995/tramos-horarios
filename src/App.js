@@ -18,7 +18,7 @@ const App = () => {
           {data.map((value) => (
             <Col md="4" key={value.id}>
               <TimeSlotsCard
-                id={value.id}
+                id={value.defId}
                 time={value.time}
                 bikes={value.bikes}
               />

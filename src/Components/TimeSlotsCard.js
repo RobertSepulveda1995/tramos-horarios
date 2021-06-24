@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { db } from '../firebaseConfig/config';
 import { Card, Button } from 'react-bootstrap';
 import deliveryGuy from '../assets/DeliveryGuy.png';
 
@@ -6,8 +7,24 @@ const TimeSlotsCard = ({ id, time, bikes }) => {
   const [green, setGreen] = useState(false);
 
   const pickABike = (idSchedule) => {
-    if (idSchedule) {
-      setGreen((green) => !green);
+    setGreen((green) => !green);
+
+    let updateBikesAvailables = db.collection('schedules').doc(idSchedule);
+
+    if (green === false) {
+      updateBikesAvailables
+        .update({
+          bikes: bikes + 1,
+        })
+        .then(() => console.log('Bike picked successfully'))
+        .catch((err) => console.error(err));
+    } else {
+      updateBikesAvailables
+        .update({
+          bikes: bikes - 1,
+        })
+        .then(() => console.log('Bike leaved successfully'))
+        .catch((err) => console.error(err));
     }
   };
 

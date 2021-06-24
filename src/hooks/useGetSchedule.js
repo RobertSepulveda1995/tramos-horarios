@@ -9,6 +9,7 @@ export const useGetSchedule = (schedules) => {
 
         snapshot.forEach((doc) => {
             schedule.push({
+                defId: doc.id,
                 id: doc.data().id,
                 time: doc.data().time,
                 bikes: doc.data().bikes,
