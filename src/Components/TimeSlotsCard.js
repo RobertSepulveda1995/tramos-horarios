@@ -37,7 +37,13 @@ const TimeSlotsCard = ({ id, time, bikes }) => {
 
           marginBottom: '1rem',
         }}
-        className={!green ? `shadow rounded` : `shadow rounded bg-success`}
+        className={
+          bikes === 0
+            ? `shadow rounded bg-danger`
+            : !green
+            ? `shadow rounded`
+            : `shadow rounded bg-success`
+        }
       >
         <Card.Img
           style={{ padding: '20px 10px 20px 10px' }}
@@ -52,12 +58,13 @@ const TimeSlotsCard = ({ id, time, bikes }) => {
           <Button
             variant="primary"
             className="shadow-sm"
+            disabled={bikes === 0 ? true : false}
             onClick={() => pickABike(id)}
           >
-            {!green
-              ? 'Pick a bike'
-              : bikes === 0
+            {bikes === 0
               ? 'Not available'
+              : !green
+              ? 'Pick a bike'
               : 'Leave the bike'}
           </Button>
         </Card.Body>
