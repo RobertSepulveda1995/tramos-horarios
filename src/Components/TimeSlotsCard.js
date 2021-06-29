@@ -9,19 +9,20 @@ const TimeSlotsCard = ({ id, time, bikes }) => {
   const pickABike = (idSchedule) => {
     setGreen((green) => !green);
 
-    let updateBikesAvailables = db.collection('schedules').doc(idSchedule);
+    console.log(idSchedule);
 
-    if (green === false) {
+    let updateBikesAvailables = db.collection('schedules').doc(idSchedule);
+    if (!green) {
       updateBikesAvailables
         .update({
-          bikes: bikes + 1,
+          bikes: bikes - 1,
         })
         .then(() => console.log('Bike picked successfully'))
         .catch((err) => console.error(err));
     } else {
       updateBikesAvailables
         .update({
-          bikes: bikes - 1,
+          bikes: bikes + 1,
         })
         .then(() => console.log('Bike leaved successfully'))
         .catch((err) => console.error(err));
@@ -53,7 +54,11 @@ const TimeSlotsCard = ({ id, time, bikes }) => {
             className="shadow-sm"
             onClick={() => pickABike(id)}
           >
-            {!green ? 'Pick a bike' : 'Leave the bike'}
+            {!green
+              ? 'Pick a bike'
+              : bikes === 0
+              ? 'Not available'
+              : 'Leave the bike'}
           </Button>
         </Card.Body>
       </Card>
